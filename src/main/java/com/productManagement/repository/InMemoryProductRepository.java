@@ -23,4 +23,9 @@ public class InMemoryProductRepository implements ProductRepository {
     public List<Product> findAll() {
         return Collections.unmodifiableList(this.products);
     }
+
+    @Override
+    public Product save(Product product) {
+        return null;
+    }
 }
