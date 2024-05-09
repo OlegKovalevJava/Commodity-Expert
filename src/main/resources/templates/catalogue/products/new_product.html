@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Новый товар &ndash; Сельмаг</title>
+    <title>New material &ndash; STOCK</title>
 </head>
 <body>
-<a data-th-href="@{/catalogue/products/list}">&larr; К списку товаров</a>
-<h1>Новый товар</h1>
+<a data-th-href="@{/catalogue/products/list}">&larr; Go to the list of materials</a>
+<h1>New material</h1>
 <form method="post" data-th-action="@{/catalogue/products/create}">
     <label>
-        Название:<br>
+        Name:<br>
         <input type="text" name="title">
     </label><br>
     <label>
-        Описание:<br>
+        Description:<br>
         <textarea name="details"></textarea>
     </label><br>
-    <button type="submit">Создать</button>
+    <button type="submit">Add</button>
 </form>
 </body>
 </html>

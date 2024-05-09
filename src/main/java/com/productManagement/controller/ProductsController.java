@@ -5,9 +5,7 @@ import com.productManagement.entity.Product;
 import com.productManagement.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("catalogue/products")
@@ -36,6 +34,10 @@ public class ProductsController {
         return "redirect:/catalogue/products/list";
     }
 
-
+    @GetMapping("{productId:\\d+}")
+    public String getProduct(@PathVariable("productId") int productId, Model model) {
+        model.addAttribute("product", this.productService.findProduct(productId).orElseThrow());
+        return "catalogue/products/product";
+    }
 
 }
