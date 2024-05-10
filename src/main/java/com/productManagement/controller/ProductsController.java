@@ -31,13 +31,7 @@ public class ProductsController {
     @PostMapping("create")
     public String createProduct(NewProductPayload payload) {
         Product product = this.productService.createProduct(payload.title(), payload.details());
-        return "redirect:/catalogue/products/list";
-    }
-
-    @GetMapping("{productId:\\d+}")
-    public String getProduct(@PathVariable("productId") int productId, Model model) {
-        model.addAttribute("product", this.productService.findProduct(productId).orElseThrow());
-        return "catalogue/products/product";
+        return "redirect:/catalogue/products/%d".formatted(product.getId());
     }
 
 }
