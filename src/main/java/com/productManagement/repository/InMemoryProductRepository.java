@@ -33,4 +33,9 @@ public class InMemoryProductRepository implements ProductRepository {
                 .findFirst();
     }
 
+    @Override
+    public void deleteById(Integer id) {
+        this.products.removeIf(product -> Objects.equals(id, product.getId()));
+    }
+
 }
