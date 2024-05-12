@@ -3,19 +3,17 @@ package com.productManagement.controller;
 import com.productManagement.controller.payload.NewProductPayload;
 import com.productManagement.entity.Product;
 import com.productManagement.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("catalogue/products")
 public class ProductsController {
 
     private final ProductService productService;
-
-    public ProductsController(ProductService productService) {
-        this.productService = productService;
-    }
 
     @GetMapping("list")
     public String getProductsList(Model model) {
