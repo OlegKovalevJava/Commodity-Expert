@@ -7,14 +7,20 @@
 <body>
 <a data-th-href="@{/catalogue/products/list}"> Go to the list of materials</a>
 <h1>New material</h1>
+<div data-th-if="${errors}">
+    <h2>ERRORS!!!</h2>
+    <ul>
+        <li data-th-each="error: ${errors}" data-th-text="${error}"></li>
+    </ul>
+</div>
 <form method="post" data-th-action="@{/catalogue/products/create}">
     <label>
         Name:<br>
-        <input type="text" name="title">
+        <input type="text" name="title" data-th-value="${payload?.title}">
     </label><br>
-    <label>
+        <label>
         Description:<br>
-        <textarea name="details"></textarea>
+        <textarea name="details" data-th-value="${payload?.details}"></textarea>
     </label><br>
     <button type="submit">Add</button>
 </form>
