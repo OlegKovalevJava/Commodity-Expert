@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Size;
 
 public record NewProductPayload(
         @NotNull
-        @Size(min = 3, max = 100)
+        @Size(min = 3, max = 100, message = "catalogue.products.create.errors.title_is_invalid")
         String title,
 
         @Size(max = 500)
